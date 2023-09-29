@@ -1,0 +1,22 @@
+<ng-container>
+
+ <!-- movie-search.component.html -->
+<div class="form" [formGroup]="movieForm">
+  Find movie: <input type="text" name="movieName" id="movieName" required formControlName="movieName">
+  <button id="btnFind" (click)="fn_formSubmit()">Find</button>
+</div>
+
+
+  <h1>Movies List</h1>
+  <div *ngIf="movies">
+    <div *ngFor="let movie of movies.d;">
+      <hr>
+      <div class="movie-image">
+        <img *ngIf="movie?.i?.imageUrl" src="{{movie?.i?.imageUrl}}" style="height: 300px; width: 300px; object-fit:cover">
+        <img *ngIf="!movie?.i?.imageUrl" src="https://i.pinimg.com/564x/92/18/4a/92184a471672bcd65d46557674d14206.jpg" style="height: 300px; width: 300px; object-fit:cover">
+      </div>
+      <h2>Movies Name: <span>{{movie.l}}</span></h2>
+    </div>    
+  </div>
+
+</ng-container>
